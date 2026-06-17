@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import ctypes
 import pyperclip
 
@@ -26,7 +26,8 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Image Text Extractor")
         self.setFixedSize(1200,600)
-        self.setWindowIcon(QIcon("icon.png"))
+        base = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+        self.setWindowIcon(QIcon(os.path.join(base, "icon.png")))
 
         root = QWidget()
         self.setCentralWidget(root)
